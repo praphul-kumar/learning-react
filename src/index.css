@@ -83,7 +83,7 @@ button:focus-visible {
 
 .main-title {
   font-size: 5rem;
-  background: -webkit-linear-gradient(#fb393c, #630000);
+  background: -webkit-linear-gradient(#39c4fb, #003a63);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
