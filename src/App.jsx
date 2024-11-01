@@ -1,12 +1,16 @@
-import { CORE_CONCEPTS } from './data/data.js';
+import { useState } from 'react';
 import Header from './components/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
+import { CORE_CONCEPTS, EXAMPLES } from './data/data.js';
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState(EXAMPLES['components']);
+
   const handleSelect = (selectedButton) => {
-    console.log(`Handle select function called by - ${selectedButton}`);
+    setSelectedTopic(EXAMPLES[selectedButton]);
   }
+
   return (
     <div>
       <Header />
@@ -30,6 +34,14 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+
+          <div id="tab-content">
+            <h3>{selectedTopic.title}</h3>
+            <p>{selectedTopic.description}</p>
+            <pre>
+              <code>{selectedTopic.code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
