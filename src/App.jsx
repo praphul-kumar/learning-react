@@ -33,10 +33,9 @@ function App() {
           <h2>Core Concepts</h2>
 
           <ul>
-            <CoreConcept {...CORE_CONCEPTS[0]} />
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            {CORE_CONCEPTS.map((conceptItem, index) => (
+              <CoreConcept {...conceptItem} key={`concept-${index}`} />
+            ))}
           </ul>
         </section>
 
@@ -44,25 +43,25 @@ function App() {
           <h2>Examples</h2>
           <menu>
             <TabButton
-              isSelected={selectedTopic.title.toLowerCase() === "components"}
+              isSelected={selectedTopic?.title.toLowerCase() === "components"}
               onSelect={() => handleSelect("components")}
             >
               Components
             </TabButton>
             <TabButton
-              isSelected={selectedTopic.title.toLowerCase() === "jsx"}
+              isSelected={selectedTopic?.title.toLowerCase() === "jsx"}
               onSelect={() => handleSelect("jsx")}
             >
               JSX
             </TabButton>
             <TabButton
-              isSelected={selectedTopic.title.toLowerCase() === "props"}
+              isSelected={selectedTopic?.title.toLowerCase() === "props"}
               onSelect={() => handleSelect("props")}
             >
               Props
             </TabButton>
             <TabButton
-              isSelected={selectedTopic.title.toLowerCase() === "state"}
+              isSelected={selectedTopic?.title.toLowerCase() === "state"}
               onSelect={() => handleSelect("state")}
             >
               State
